@@ -1,0 +1,44 @@
+---
+title: THREE spaces
+date: '2024-07-13'
+tags: ['threejs', 'maths']
+draft: false
+summary: Jumping into different THREEjs spaces
+---
+
+# THREE spaces
+
+Related article: [Change of basis](change-of-basis.md)
+
+## "Space"
+
+In a 3d environment, a "space" is defined by 3 perpendicular axes and an origin:
+[![image](https://docs.google.com/drawings/d/e/2PACX-1vSgAWjz37yphQgR4NkrW8Lehtg3LAVJmqn0fMcGoMgxETzU1dj_V36MAPUfCwSFrtRkK3IEVsMzeWXE/pub?w=1440&h=1080)](https://docs.google.com/drawings/d/1thD_hICjAhERuMXal7ez8HhEk9JPYV7iF5Mhb2VIYCU/edit)
+
+It allows us to locate any "point" in this space, by its 3 coordinates components:
+[![image](https://docs.google.com/drawings/d/e/2PACX-1vQDwhYakAtd5OudiUgRExULy6C-LwD-KTuOe_k0DpkR3nAGWkj4LXOdYEt8f3rKgb7g3EA10YGq7EQu/pub?w=1440&h=1080)](https://docs.google.com/drawings/d/1kflQFDXOeOiT6VvMu_0fktmethV-jprDh9zLv8ZBshE/edit)
+
+**In THREE, a such space is called an [`Object3D`](https://threejs.org/docs/index.html?q=object#api/en/core/Object3D).**
+
+## World space
+
+A default "world" space will always exist, the [`Scene`](https://threejs.org/docs/index.html?q=scene#api/en/scenes/Scene):
+[![image](https://docs.google.com/drawings/d/e/2PACX-1vRG2Sxu2kkV8wW3c3spdxQ3GzsZfhmubzisEEEQzOjyuh0m0WqO97X5K2WI9UQXc7Qd08prGGxXnQxg/pub?w=1440&h=1080)](https://docs.google.com/drawings/d/1S81NPv6S1NSpr2A_qBdVaZaKk4l4LqN3I_6jQa0tJ_E/edit)
+
+```js
+const scene = new THREE.Scene()
+```
+
+Any other "object" in the scene has also its own "space", typically a [`Mesh`](https://threejs.org/docs/index.html?q=mesh#api/en/objects/Mesh) — which is an `Object3d`:
+[![image](https://docs.google.com/drawings/d/e/2PACX-1vSfT3Ikc78bzVPFAhd-48AQpLx1sTAV48Tt4QkXjQR8znLOeS3scZfN5l1WVSeaymacfrcGCvqrqoAq/pub?w=1440&h=1080)](https://docs.google.com/drawings/d/10be51vBd848bzi2RwGcrRLCmRWqmhSwPFs8FR5kdKvQ/edit)
+
+```js
+const cube = new THREE.Mesh(/* ... */)
+scene.add(cube)
+```
+
+NB: A [`Camera`](https://threejs.org/docs/index.html?q=camera#api/en/cameras/Camera) is also an `Object3D` and has its own "space" too.
+
+## Topology
+
+`Scene` is the root of any "object":
