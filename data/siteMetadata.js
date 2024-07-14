@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: "abernier's website",
-  author: 'Antoine BERNIER',
-  headerTitle: 'abernier',
+  title: 'whitespace',
+  author: '⃞',
+  headerTitle: 'space',
   description: '',
   language: 'en-us',
   theme: 'system', // system, dark or light
